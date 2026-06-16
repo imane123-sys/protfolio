@@ -34,11 +34,11 @@ body {
   z-index: 5;
 }
 .logo {
-  font-style: 3rem;
+  font-size: 3rem;
   color: var(--text-color);
   font-weight: 800;
   cursor: pointer;
-  transition: 0.3 ease;
+  transition: 0.3s ease;
 }
 .logo:hover {
   transform: scale(1.1);
@@ -154,7 +154,7 @@ span {
   border: 2px solid transparent;
   letter-spacing: 0.1rem;
   font-weight: 600;
-  transition: 0.3 ease-in-out;
+  transition: 0.3s ease-in-out;
   cursor: pointer;
 }
 .btn:hover {
@@ -194,11 +194,13 @@ span {
   content: "";
   background-color: var(--bg-color);
   position: absolute;
-  width: calc(100%+8px);
+  width: calc(100% + 8px);
   height: 100%;
   border-left: 3px solid var(--bg-color);
   right: -8px;
-  animation: cursor 0.6s infinite 20s steps(14) inifinite;
+  animation:
+    cursor 0.6s infinite,
+    typing 20s steps(14) infinite;
 }
 @keyframes cursor {
   to {
@@ -241,7 +243,7 @@ span {
   60%,
   80%,
   85% {
-    width: calc(100%+8px);
+    width: calc(100% + 8px);
   }
 }
 .heading {
@@ -269,7 +271,7 @@ span {
   width: 5px;
   height: 100%;
   background-color: var(--main-color);
-  left: calc(50% -1px);
+  left: calc(50% - 1px);
 }
 .timeline-item {
   margin-bottom: 40px;
@@ -303,4 +305,48 @@ span {
   font-weight: 800;
   color: white;
   margin: 6px 0 15px;
+}
+.timeline-content {
+  background-color: var(--bg-color);
+  border: 3px solid var(--main-color);
+  padding: 30px 50px;
+  border-radius: 4em;
+  box-shadow: 0 0 10px var(--main-color);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.timeline-content:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--main-color);
+}
+.timeline-content h3 {
+  font-size: 20px;
+  color: white;
+  margin: 0 0 10px;
+  font-weight: 500;
+}
+.timeline-content p {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 22px;
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+::-webkit-scrollbar-track {
+  background-color: var(--bg-color);
+  width: 50px;
+}
+.competences {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  flex-direction: row;
+}
+.competences-div {
+  display: inline-block;
 }
