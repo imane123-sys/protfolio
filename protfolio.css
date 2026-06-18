@@ -353,21 +353,115 @@ span {
   width: 50px;
 }
 
-/*a continuer dans la maison */
-.competences {
+/* --- CONTENEURS --- */
+.about__container {
+  display: grid;
+  row-gap: 4rem;
+  justify-content: center; /* Assure le centrage global */
+  padding: 2rem 1rem;
+}
+
+.about__content {
+  display: grid;
+  row-gap: 3rem; /* Réduit de 10rem à 3rem pour éviter un trop grand vide */
+  justify-items: center; /* Centre les éléments enfants dans la grille */
+}
+
+/* --- LE BLOC DATA (CORRIGÉ & CENTRÉ) --- */
+.about__data {
   display: flex;
-  background-color: orange;
-  height: 100px;
-  flex-direction: row;
-  gap: 10px;
+  flex-direction: column; /* Aligne le titre, la description et le bouton verticalement */
+  align-items: center; /* Centre horizontalement tous les enfants */
+  text-align: center; /* Centre le texte à l'intérieur */
+  max-width: 700px; /* Limite la largeur pour une excellente lisibilité */
+  margin: 0 auto;
 }
-.competences-div {
-  flex: 1;
-  justify-content: center;
+
+/* --- LE TITRE --- */
+.section__title {
+  font-size: 2.25rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+/* --- LA DESCRIPTION (STYLE DE CARTE AVANCÉ) --- */
+.about__description {
+  background-color: var(--main-color);
+  color: var(--bg-color); /* Applique directement la couleur au texte */
+  padding: 2rem 2.5rem; /* Remplissage fluide au lieu d'une hauteur fixe */
+  border-radius: 15px; /* Arrondis modernes */
+  line-height: 1.7; /* Améliore grandement la lecture */
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Léger relief */
+  transition: transform 0.3s ease;
+}
+
+.about__description:hover {
+  transform: translateY(-5px); /* Petit effet interactif discret au survol */
+}
+
+/* --- LE BOUTON --- */
+.button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.button__ghost {
+  border: 2px solid var(--main-color);
+  color: var(--main-color);
+  background: transparent;
+}
+
+.button__ghost:hover {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- LES BONUS (SUBTITLE & ITEMS NETTOYÉS) --- */
+.about__subtitle {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  column-gap: 0.5rem;
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 1rem;
 }
-.competence-div {
-  padding: 0 15px;
-  margin: 0;
-  background-color: white;
+
+.about__subtitle i {
+  font-size: 1.5rem; /* Correction de la syntaxe font: size */
+}
+
+.about__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centre les badges */
+  gap: 0.75rem;
+  padding: 0;
+}
+
+.about__item {
+  list-style: none;
+  background-color: var(--main-color);
+  padding: 0.6rem 1.2rem;
+  color: var(
+    --bg-color
+  ); /* Utilisation de votre variable plutôt que 'black' sec */
+  font-weight: 700;
+  border: 2px solid transparent;
+  border-radius: 50px; /* Style pilule plus moderne */
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.about__item:hover {
+  background-color: transparent;
+  color: white;
+  border-color: var(--main-color);
 }
