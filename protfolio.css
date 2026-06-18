@@ -465,3 +465,154 @@ span {
   color: white;
   border-color: var(--main-color);
 }
+
+/* Le conteneur : toujours 2 colonnes par ligne */
+.projects__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  padding-block: 2rem;
+  
+  max-width: 800px; /* Limite la largeur de la grille (ex: 900px ou 1000px) */
+  margin: 0 auto;
+}
+
+/* La carte : Hauteur réduite de 350px à 280px pour que l'image soit plus petite */
+.projects__card {
+  position: relative;
+  height: 280px;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  background-color: #111;
+}
+
+/* L'image s'adapte à la nouvelle petite hauteur */
+.projects__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* L'overlay */
+.projects__data {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 0.85rem; /* Un peu plus d'espace entre les éléments */
+  text-align: center;
+  padding: 1.5rem 2rem;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Animation de base pour l'effet WOW */
+.projects__title,
+.projects__description,
+.button {
+  transform: translateY(20px);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* TITRE AGRANDI */
+.projects__title {
+  font-size: 1.45rem; /* Augmenté (anciennement 1.25rem) */
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* DESCRIPTION AGRANDIE */
+.projects__description {
+  font-size: 1.5rem; /* Augmenté (anciennement 0.875rem) */
+  color: #e2e8f0;
+  line-height: 1.6;
+  max-width: 90%; /* Évite que le texte colle trop aux bords */
+}
+
+/* BOUTON PLUS GRAND */
+.button {
+  background-color: #fff;
+  color: #000;
+  padding: 0.9rem 2rem; /* Augmenté (plus de rembourrage interne) */
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: 1.5rem; /* Augmenté (anciennement 0.85rem) */
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.25);
+  transition:
+    background-color 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.button:hover {
+  background-color: hsl(var(--main-color), 80%, 48%);
+  color: #fff;
+  box-shadow: 0 6px 20px hsl(var(--main-color), 80%, 48%, 0.4);
+}
+
+/* ================= HOVER EFFECTS ================= */
+
+.projects__card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.projects__card:hover img {
+  transform: scale(1.05);
+}
+
+.projects__card:hover .projects__data {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.projects__card:hover .projects__title,
+.projects__card:hover .projects__description,
+.projects__card:hover .button {
+  transform: translateY(0);
+}
+
+.projects__card:hover .projects__description {
+  transition-delay: 0.05s;
+}
+.projects__card:hover .button {
+  transition-delay: 0.1s;
+}
+
+/* Responsive pour mobile (1 seule colonne) */
+@media screen and (max-width: 768px) {
+  .projects__container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .projects__card {
+    height: 260px;
+  }
+  .projects__title {
+    font-size: 1.25rem;
+  }
+  .projects__description {
+    font-size: 0.85rem;
+  }
+}
