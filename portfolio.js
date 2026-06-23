@@ -14,10 +14,24 @@ if (menuIcon && navbar) {
   });
 
   navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (e) => {
       navbar.classList.remove("active");
       menuIcon.classList.add("bx-menu");
       menuIcon.classList.remove("bx-x");
+
+      const href = link.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const header = document.querySelector(".header");
+          const offset = (header ? header.offsetHeight : 0) + 12;
+          const top =
+            target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: "smooth" });
+          history.pushState(null, "", href);
+        }
+      }
     });
   });
 }
