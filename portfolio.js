@@ -1,9 +1,3 @@
-// let email = document.getElementById("email");
-
-// email.addEventListener("input", (event) => {
-//   console.log(email.value);
-// });
-
 const menuIcon = document.querySelector("#menu-icon");
 const navbar = document.querySelector(".navbar");
 const navLinks = document.querySelectorAll(".navbar a");
@@ -47,10 +41,9 @@ if (contactForm) {
   if (messageInput && !messageInput.name) messageInput.name = "message";
 
   contactForm.method = "POST";
-  contactForm.action = `https://formsubmit.co/ajax/${recipientEmail}`;
+  contactForm.action = `https://formsubmit.co/${recipientEmail}`;
 
   const hiddenFields = {
-    _captcha: "false",
     _template: "table",
     _subject: "Nouveau message depuis le portfolio",
     _autoresponse:
@@ -68,28 +61,6 @@ if (contactForm) {
     }
 
     hiddenInput.value = value;
-  });
-
-  contactForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    try {
-      const response = await fetch(contactForm.action, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-        },
-        body: new FormData(contactForm),
-      });
-
-      if (!response.ok) {
-        throw new Error("La requête email a échoué.");
-      }
-
-      contactForm.reset();
-    } catch (error) {
-      console.error("Impossible d'envoyer le message pour le moment.", error);
-    }
   });
 }
 

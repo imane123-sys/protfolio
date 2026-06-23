@@ -218,24 +218,25 @@
 
     <section class="contact" id="contact">
       <h2 class="heading">Contactez-nous</h2>
-      <form action="">
+      <form action="https://formsubmit.co/ramadaneimane8@gmail.com" method="POST">
         <div class="input-group">
           <div class="input-box">
-            <input type="text" placeholder="Nom Complet" />
-            <input type="email" placeholder="email"  id="email"/>
+            <input type="text" name="name" placeholder="Nom Complet" required />
+            <input type="email" name="email" placeholder="email" id="email" required />
           </div>
           <div class="input-box">
-            <input type="number" placeholder="Numéro de téléphone" />
-            <input type="text" placeholder="Sujet" />
+            <input type="number" name="phone" placeholder="Numéro de téléphone" />
+            <input type="text" name="subject" placeholder="Sujet" required />
           </div>
         </div>
         <div class="input-group-2">
           <textarea
-            name=""
-            id=""
+            name="message"
+            id="message"
             cols="30"
             rows="10"
             placeholder="Votre Message"
+            required
           ></textarea>
           <input type="submit" value="Confirmer" class="btn" />
         </div>
