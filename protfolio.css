@@ -73,8 +73,16 @@ body {
 section {
   padding: 10rem 12% 10rem;
 }
+#competences {
+  scroll-margin-top: 20rem;
+}
+#contact {
+  scroll-margin-top: 15rem;
+}
 .projects {
   padding: 10rem 12% 0 !important;
+  margin-top: 60px;
+  margin-bottom: 20px;
 }
 .home {
   display: flex;
@@ -281,29 +289,27 @@ span {
 
 .heading {
   margin: 1.5rem 0 2rem 0 !important;
+  text-align: start;
 }
 
 .about__subtitle {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  column-gap: 0.5rem;
   font-size: 2.8rem;
   color: white;
   text-align: start;
-  margin-top: 1.5rem;
   margin-bottom: 2rem;
+  margin-top: 1.5rem;
   margin-left: 0;
   margin-right: 0;
+  padding-left: 0;
   font-weight: 700;
   letter-spacing: 0.5px;
 }
 
 .education {
-  padding: 5px 15px;
+  padding: 0rem 12%;
   background: var(--bg-color);
 }
-.education h2 {
+.education h3 {
   margin-bottom: 5rem;
 }
 .timeline-items {
@@ -393,7 +399,6 @@ span {
 .about__container {
   display: grid;
   row-gap: 4rem;
-  justify-content: center;
   padding-top: 5rem;
   padding-bottom: 10rem;
 }
@@ -405,7 +410,6 @@ span {
 .about__content {
   display: grid;
   row-gap: 4rem;
-  justify-items: center;
 }
 
 .about__data {
@@ -417,7 +421,7 @@ span {
   margin: 0 auto;
 }
 
-.section__title {
+.section__title{
   font-size: 2.8rem;
   color: white;
   margin-bottom: 2rem;
@@ -429,6 +433,7 @@ span {
   font-weight: 700;
   letter-spacing: 0.5px;
   padding-left: 0;
+  width: 100%;
 }
 
 .about__description {
@@ -441,6 +446,8 @@ span {
   margin-bottom: 2.5rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  text-align: center;
+  align-self: center;
 }
 
 .about__description:hover {
@@ -460,6 +467,7 @@ span {
   color: var(--main-color);
   background: transparent;
   margin-bottom: 3rem;
+  align-self: center;
 }
 
 .button__ghost:hover {
@@ -468,23 +476,15 @@ span {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
+
 .about__subtitle {
   display: flex;
   align-items: center;
-  justify-content: center;
-  column-gap: 0.5rem;
-  font-size: 1.5rem;
-  color: white;
-  margin-bottom: 1rem;
-}
-.about__subtitle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   column-gap: 0.6rem;
-  font-size: 1.9rem;
+  font-size: 2.5rem;
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 5rem;
 }
 .about__subtitle i {
   font-size: 1.6rem;
@@ -498,39 +498,26 @@ span {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 1.5rem;
   padding: 0;
-}
-.about__items {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  padding: 0;
+  max-width: 100%;
 }
 
 .about__item {
   list-style: none;
   background-color: var(--main-color);
-  padding: 0.6rem 1.2rem;
+  padding: 0.7rem 1.5rem;
   color: var(--bg-color);
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 1.8rem;
   border: 2px solid transparent;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.4s ease;
 }
-.about__item {
-  list-style: none;
-  background-color: var(--main-color);
-  padding: 0.7rem 1.4rem;
-  color: var(--bg-color);
-  font-weight: 800;
-  font-size: 1.4rem;
-  border: 2px solid transparent;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.4s ease;
+
+.about__item:nth-child(n+10) {
+  margin-top: 0.5rem;
 }
 
 .about__skills {
@@ -563,6 +550,7 @@ span {
   color: white;
   border-color: var(--main-color);
 }
+ 
 
 .projects__container {
   display: grid;
@@ -570,8 +558,8 @@ span {
   gap: 2.5rem;
   padding-block: 2rem;
 
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin-top: 0;
 }
 
 .projects__card {
@@ -694,6 +682,7 @@ span {
 .contact h2 {
   margin-bottom: 3rem;
   color: white;
+  text-align: start;
 }
 input[type="search"]::-webkit-search-cancel-button {
   display: none;
@@ -735,7 +724,7 @@ input[type="search"]::-webkit-search-decoration {
   position: relative;
   bottom: 0;
   width: 100%;
-  padding: 40px 0;
+  padding: 8rem 0 18rem;
   background-color: var(--bg-color);
 }
 .footer .social {

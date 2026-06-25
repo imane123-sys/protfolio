@@ -25,9 +25,35 @@ if (menuIcon && navbar) {
         if (target) {
           e.preventDefault();
           const header = document.querySelector(".header");
-          const offset = (header ? header.offsetHeight : 0) + 12;
-          const top =
-            target.getBoundingClientRect().top + window.pageYOffset - offset;
+          const headerH = header ? header.offsetHeight : 0;
+          
+          let top;
+          if (href === "#contact") {
+            const form = target.querySelector("form");
+            if (form) {
+              const viewportHeight = window.innerHeight;
+              const formHeight = form.offsetHeight;
+              // Center the form
+              top = form.getBoundingClientRect().top + window.pageYOffset - (viewportHeight - formHeight) / 2;
+              
+              // Ensure the heading title is not covered by the header
+              const heading = target.querySelector(".heading");
+              const headingTop = heading ? (heading.getBoundingClientRect().top + window.pageYOffset) : (target.getBoundingClientRect().top + window.pageYOffset);
+              const titleLimit = headingTop - headerH - 20;
+              if (top > titleLimit) {
+                top = titleLimit;
+              }
+            } else {
+              top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 150;
+            }
+          } else {
+            let extraOffset = 12;
+            if (href === "#competences") {
+              extraOffset = 200;
+            }
+            top = target.getBoundingClientRect().top + window.pageYOffset - headerH - extraOffset;
+          }
+          
           window.scrollTo({ top, behavior: "smooth" });
           history.pushState(null, "", href);
         }
@@ -85,12 +111,12 @@ if (projectsSection && projectsContainer && projectCards.length) {
   projectsHeader.style.display = "flex";
   projectsHeader.style.alignItems = "center";
   projectsHeader.style.justifyContent = "flex-start";
-  projectsHeader.style.gap = "1.2rem";
+  projectsHeader.style.gap = "2.5rem";
   projectsHeader.style.flexWrap = "wrap";
   projectsHeader.style.width = "100%";
-  projectsHeader.style.maxWidth = "900px";
-  projectsHeader.style.margin = "0 auto 2rem";
-  projectsHeader.style.padding = "0 1rem";
+  projectsHeader.style.maxWidth = "100%";
+  projectsHeader.style.margin = "0 0 2rem 0";
+  projectsHeader.style.padding = "0";
 
   const searchWrapper = document.createElement("div");
   searchWrapper.className = "projects-search";
@@ -114,6 +140,8 @@ if (projectsSection && projectsContainer && projectCards.length) {
   searchInput.style.minWidth = "0";
 
   if (projectsTitle) {
+    projectsTitle.style.width = "auto";
+    projectsTitle.style.margin = "0";
     projectsSection.insertBefore(projectsHeader, projectsTitle);
     projectsHeader.appendChild(projectsTitle);
     projectsHeader.appendChild(searchWrapper);
